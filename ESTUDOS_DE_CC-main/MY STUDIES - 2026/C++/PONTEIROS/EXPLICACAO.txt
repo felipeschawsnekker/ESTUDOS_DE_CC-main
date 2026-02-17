@@ -15,3 +15,4 @@
 -> Oferece o endereço ocupado por uma variável
 -> "&" : Operador unário - usa apenas um operando (EX: &pos; k--)
 -> Operando : nome de uma variável
+testando
