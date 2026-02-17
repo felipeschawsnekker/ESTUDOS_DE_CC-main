@@ -1,0 +1,17 @@
+*DEFINIÇÃO
+-> Um ponteiro é uma variável capaz de armazenar um endereço de memória ou o endereço de uma outra variável
+-> Seu valor indica em que parte da memória uma variável está alocada
+-> Permite acessar uma variável sem referênciá-la.
+
+*USO
+-> Manipular elementos de matrizes;
+-> Receber argumentos de funções;
+-> Passar strings entre funções;
+-> Criar estruturas de dados complexas;
+-> Alocar e desalocar memória do sistema;
+->Passar para uma função o endereço de outra função;
+
+*OPERADOR DE ENDEREÇO
+-> Oferece o endereço ocupado por uma variável
+-> "&" : Operador unário - usa apenas um operando (EX: &pos; k--)
+-> Operando : nome de uma variável
