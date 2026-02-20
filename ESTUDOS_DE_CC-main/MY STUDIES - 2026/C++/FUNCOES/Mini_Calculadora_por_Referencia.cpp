@@ -1,3 +1,6 @@
+/*Escreva um programa que chame uma função e calcule a soma, produto e diferença e quociente de dois números. 
+  Estes números devem ser passados por referência. 
+*/
 #include <iostream>
 #include <cmath>
 using namespace std;
