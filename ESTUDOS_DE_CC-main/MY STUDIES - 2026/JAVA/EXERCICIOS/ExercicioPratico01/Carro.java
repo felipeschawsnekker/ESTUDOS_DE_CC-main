@@ -10,22 +10,24 @@ public class Carro{
     String modelo;
     String cor;
     String placa;
+    double tempo_estacionado;
     boolean estacionar;
     double valor_por_hora=5;
-    double tempo_estacionado;
+    double entrar;
+    double sair;
+    
+    double preco_total;
     int ano;
     
     void Estacionar_Carro(){
         estacionar=true;
-        System.out.println("O carro entrou, está estacionado");
+        System.out.println("O carro "+ modelo +" entrou, está estacionado");
     }
-    void Sair_Carro(double horas){
+    void Sair_Carro(){
         estacionar=false;
-        tempo_estacionado=horas;
-        double preco_total=tempo_estacionado*valor_por_hora;
-        System.out.println("O carro"+ modelo + "está saindo");
-        System.out.println("Tempo estacionado: "+ tempo_estacionado +"horas");
-        System.out.println("O valor total a se pagar é: R$" + preco_total);
+        tempo_estacionado=sair-entrar;
+        preco_total=tempo_estacionado*valor_por_hora;
+        System.out.println("O carro "+ modelo + " está saindo");
+        
     }
 }
-
