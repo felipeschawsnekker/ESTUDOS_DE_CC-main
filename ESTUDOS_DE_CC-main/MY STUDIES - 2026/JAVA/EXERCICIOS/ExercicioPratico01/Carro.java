@@ -23,8 +23,8 @@ public class Carro{
         estacionar=false;
         tempo_estacionado=horas;
         double preco_total=tempo_estacionado*valor_por_hora;
-        System.out.println("O carro está saindo");
-        System.out.println("Tempo estacionado: "+tempo_estacionado+"horas");
+        System.out.println("O carro"+ modelo + "está saindo");
+        System.out.println("Tempo estacionado: "+ tempo_estacionado +"horas");
         System.out.println("O valor total a se pagar é: R$" + preco_total);
     }
 }
