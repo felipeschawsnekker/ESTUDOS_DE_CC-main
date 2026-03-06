@@ -1,0 +1,9 @@
+Função básica: Malloc - Recebe como parametro o n* de bytes que se deseja alocar e retorna o endereço inicial da área de 
+memória alocada
+
+v=(int *) malloc(10*4)
+
+Estruturas Homogeneas: Matriz - coleção de variáveis do mesmo tipo com um unico nome e armazenados contiguamente
+
+Estrutura de Dados Heterogeneas: Coleção de algumas variáveis, possivelmente de tipos diferentes (Struct) - Agrupam certas informações
+oogicamente relacionadas
