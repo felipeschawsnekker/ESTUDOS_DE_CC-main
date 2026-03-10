@@ -1,3 +1,4 @@
 Alocação dinâmica em C++ usa principalmente new para alocar memória
 e delete para liberá-la, permitindo criar estruturas cujo 
 tamanho só é conhecido em tempo de execução.
+v=(int *) malloc(10*4)
