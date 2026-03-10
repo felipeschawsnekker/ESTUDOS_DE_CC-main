@@ -3,3 +3,15 @@ e delete para liberá-la, permitindo criar estruturas cujo
 tamanho só é conhecido em tempo de execução.
 v=(int *) malloc(10*4)
 #include <stdlib.h>
+
+A função malloc é usada para alocar espaço para armazenar valores de qualquer tipo. Malloc retorna um ponteiro genérico
+v = (int *) malloc (10 * sizeof(int));
+float n=1000;
+v=(float *) malloc (n*sizeof(float));
+
+Podemos cercar o erro verificando o valor retorno da função malloc.
+exit()
+free()
+
+
+
