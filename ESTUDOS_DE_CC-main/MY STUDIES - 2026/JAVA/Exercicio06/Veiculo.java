@@ -79,3 +79,4 @@ public class Veiculo {
         System.out.println("VALOR TOTAL PAGO: R$ " + valorUltimoPagamento);
         System.out.println("------------------------------\n");
     }
+}
