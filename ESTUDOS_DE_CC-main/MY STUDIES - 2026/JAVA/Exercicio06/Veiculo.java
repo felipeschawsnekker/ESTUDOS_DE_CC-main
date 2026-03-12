@@ -3,28 +3,28 @@ public class Veiculo {
     // ATRIBUTOS
     private String placa;
     public String getPlaca(){
-        return placa;
+        return this.placa;
     }
     
     private String modelo;
     public String getModelo(){
-        return modelo;
+        return this.modelo;
     }
     
     private double valorHora; // Cada objeto tera seu proprio valor aqui
     public double getValorHora(){
-        return valorHora;
+        return this.valorHora;
     }
     
     
     private double cupomDesconto;
     public double getCupomDesconto(){
-        return cupomDesconto;
+        return this.cupomDesconto;
     }
     
     private boolean estaEstacionado;
     public boolean isEstaEstacionado(){
-        return estaEstacionado;
+        return this.estaEstacionado;
     }
     private double valorUltimoPagamento;
     private int horaEntrada;
