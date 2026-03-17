@@ -1,0 +1,6 @@
+Função	O que faz
+push()	adiciona elemento
+pop()	remove topo
+top()	vê o topo
+empty()	verifica se está vazia
+size()	tamanho da pilha
