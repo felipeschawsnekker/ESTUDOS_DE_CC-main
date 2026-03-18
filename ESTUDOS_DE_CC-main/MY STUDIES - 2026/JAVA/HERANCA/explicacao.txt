@@ -1,0 +1,4 @@
+Herança permite que uma classe herde atributos e métodos de outra classe.
+
+👉 A classe que herda = subclasse (filha)
+👉 A classe que é herdada = superclasse (pai)
