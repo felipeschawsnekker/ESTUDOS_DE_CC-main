@@ -18,7 +18,7 @@ int main(){
         c.push(frase[i]);
     }
     
-    cout<<"Frase normal: ";
+    cout<<"Frase invertida: ";
     
     while(!c.empty()){
         cout<<c.top();
