@@ -1,0 +1,47 @@
+==============================
+OVERRIDE EM JAVA
+==============================
+
+1. O que é?
+------------
+Override = sobrescrever um método da classe pai na classe filha.
+Permite mudar o comportamento sem alterar a superclasse.
+
+Exemplo:
+class Animal {
+    void fazerSom() { System.out.println("Som genérico"); }
+}
+class Gato extends Animal {
+    @Override
+    void fazerSom() { System.out.println("Miau"); }
+}
+
+2. Regras rápidas
+-----------------
+- Mesmo nome e parâmetros.
+- Tipo de retorno igual ou compatível.
+- Não reduzir visibilidade.
+- Use @Override para evitar erros.
+
+3. super com Override
+---------------------
+Permite chamar o método da superclasse:
+super.metodo();
+
+Exemplo:
+class Cachorro extends Animal {
+    @Override
+    void fazerSom() {
+        super.fazerSom();
+        System.out.println("Au au");
+    }
+}
+
+4. Polimorfismo
+---------------
+Animal a = new Gato();
+a.fazerSom(); // executa o Gato, não Animal
+
+Resumo:
+---------
+Override = personalizar métodos herdados. Essencial para POO.
