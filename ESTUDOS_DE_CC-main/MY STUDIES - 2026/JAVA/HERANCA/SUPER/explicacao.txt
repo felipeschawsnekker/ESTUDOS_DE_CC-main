@@ -1,0 +1,36 @@
+==============================
+SUPER EM JAVA
+==============================
+
+1. O que é?
+------------
+super = referência à classe pai (superclasse). 
+Serve para acessar métodos, atributos ou construtores da superclasse.
+
+2. Usos principais
+-----------------
+a) Chamar método do pai:
+   class Cachorro extends Animal {
+       @Override
+       void fazerSom() {
+           super.fazerSom(); // chama método do pai
+           System.out.println("Au au");
+       }
+   }
+
+b) Chamar construtor do pai:
+   class Cachorro extends Animal {
+       Cachorro(String nome) {
+           super(nome); // chama construtor da superclasse
+       }
+   }
+
+3. Boas práticas
+----------------
+- Use super para reaproveitar código da superclasse.
+- Só funciona dentro da subclasse.
+- Construtores do pai devem ser chamados **primeiro** no construtor da filha.
+
+Resumo:
+---------
+super = acessar elementos da superclasse. Essencial para herança e polimorfismo.
