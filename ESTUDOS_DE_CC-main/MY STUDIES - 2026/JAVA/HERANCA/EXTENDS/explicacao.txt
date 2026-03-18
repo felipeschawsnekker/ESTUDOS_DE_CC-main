@@ -1,0 +1,28 @@
+==============================
+EXTENDS EM JAVA
+==============================
+
+1. O que é?
+------------
+`extends` é a palavra-chave usada para **herdar uma classe**.
+Uma classe filha herda atributos e métodos da classe pai.
+
+Exemplo:
+class Animal {
+    void fazerSom() { System.out.println("Som genérico"); }
+}
+class Cachorro extends Animal {  // Cachorro herda de Animal
+    void latir() { System.out.println("Au au"); }
+}
+
+2. Regras rápidas
+-----------------
+- Uma classe só pode herdar de **uma única classe** (não múltipla).
+- A classe filha recebe todos os métodos e atributos **não privados** do pai.
+- Pode sobrescrever métodos usando `@Override`.
+- Permite usar **polimorfismo**:
+  Animal a = new Cachorro(); // ok
+
+Resumo:
+---------
+`extends` = criar uma relação “É UM” entre classes, permitindo reutilização de código e POO.
