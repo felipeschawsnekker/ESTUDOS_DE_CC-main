@@ -1,0 +1,37 @@
+Polimorfismo significa "muitas formas". No Java, é a 
+capacidade de um objeto ser tratado como se fosse de um tipo 
+mais genérico (a classe pai), mas ainda assim executar o comportamento 
+específico da sua classe real (a classe filha).
+Em termos simples: você dá a mesma ordem para animais diferentes, e cada um responde do seu jeito.
+
+public class Teste {
+    public static void main(String[] args) {
+        // POLIMORFISMO: O tipo é Animal, mas o objeto é Cachorro/Gato
+        Animal meuAnimal1 = new Cachorro();
+        Animal meuAnimal2 = new Gato();
+
+        meuAnimal1.fazerSom(); // Saída: Au Au!
+        meuAnimal2.fazerSom(); // Saída: Miau!
+    }
+}
+
+
+class Animal {
+    void fazerSom() {
+        System.out.println("O animal faz um som");
+    }
+}
+
+class Cachorro extends Animal {
+    @Override
+    void fazerSom() {
+        System.out.println("Au Au!");
+    }
+}
+
+class Gato extends Animal {
+    @Override
+    void fazerSom() {
+        System.out.println("Miau!");
+    }
+}
