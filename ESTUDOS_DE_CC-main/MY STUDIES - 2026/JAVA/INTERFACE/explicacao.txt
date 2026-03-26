@@ -1,0 +1,65 @@
+. O que é uma interface?
+É como um “molde de comportamento”.
+Qualquer classe que implementa uma interface precisa seguir suas regras.
+
+📌 2. Exemplo básico
+interface Animal {
+    void fazerSom();
+}
+👉 Aqui, a interface só declara o método (sem corpo).
+
+📌 3. Implementando uma interface
+Uma classe usa implements para usar uma interface:
+class Cachorro implements Animal {
+    public void fazerSom() {
+        System.out.println("Latindo");
+    }
+}
+✔ A classe é obrigada a implementar o método.
+
+📌 4. Regras importantes
+Métodos são implicitamente public abstract
+Atributos são public static final (constantes)
+Não pode instanciar interface:
+Animal a = new Animal(); // ❌ erro
+
+📌 5. Interface com múltiplas implementações
+Uma classe pode implementar várias interfaces:
+interface Corredor {
+    void correr();
+}
+interface Nadador {
+    void nadar();
+}
+class Atleta implements Corredor, Nadador {
+    public void correr() {
+        System.out.println("Correndo...");
+    }
+    public void nadar() {
+        System.out.println("Nadando...");
+    }
+}
+👉 Java permite herança múltipla de interfaces.
+
+📌 6. Métodos com implementação (Java 8+)
+Interfaces podem ter métodos com corpo usando default:
+interface Animal {
+    void fazerSom();
+    default void dormir() {
+        System.out.println("Dormindo...");
+    }
+}
+
+📌 7. Diferença entre abstract e interface
+Característica	Abstract class	Interface
+Instanciar	❌ Não	❌ Não
+Métodos com corpo	✔ Sim	✔ (default/static)
+Métodos abstratos	✔ Sim	✔ Sim
+Herança múltipla	❌ Não	✔ Sim
+Atributos	Variáveis normais	Constantes (final)
+📌 💡 Quando usar interface?
+
+Use interface quando:
+você quer definir um contrato
+diferentes classes podem implementar o mesmo comportamento
+precisa de flexibilidade (múltiplas heranças)
