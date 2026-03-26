@@ -1,0 +1,56 @@
+Classe abstrata
+Uma classe abstrata é uma classe que não pode ser instanciada diretamente. 
+Ela é usada como modelo (base) para outras classes.
+
+Exemplo:
+public abstract class Animal {
+    void dormir() {
+        System.out.println("O animal está dormindo");
+    }
+}
+
+👉 Aqui, Animal não pode ser criado com new Animal().
+Ela serve para ser herdada.
+
+📌 2. Método abstrato
+Um método abstrato é um método que não tem implementação (corpo), apenas a definição.
+Exemplo:
+abstract class Animal {
+    abstract void fazerSom();
+}
+👉 Esse método deve ser obrigatoriamente implementado pelas subclasses.
+
+📌 3. Implementação na classe filha
+Quando uma classe herda uma classe abstrata, ela precisa implementar os métodos abstratos.
+Exemplo completo:
+public abstract class Animal {
+    abstract void fazerSom();
+}
+
+public class Cachorro extends Animal {
+    void fazerSom() {
+        System.out.println("Latindo");
+    }
+}
+📌 4. Mistura de métodos
+Uma classe abstrata pode ter:
+métodos abstratos (sem corpo)
+métodos normais (com implementação)
+abstract class Animal {
+    abstract void fazerSom();
+
+    void respirar() {
+        System.out.println("Respirando...");
+    }
+}
+
+📌 5. Resumo rápido
+abstract class → não pode criar objeto diretamente
+abstract method → não tem corpo
+subclasses → devem implementar os métodos abstratos
+💡 Quando usar?
+
+Use abstract quando:
+você quer criar uma estrutura padrão
+várias classes terão algo em comum
+mas cada uma implementa de forma diferente
