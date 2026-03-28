@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "ESTUDOS_DE_CC-main_a0520f90"
+        },
+        {
             "name": "(gdb) Attach",
             "type": "cppdbg",
             "request": "attach",
@@ -33,7 +40,9 @@
             "pipeTransport": {
                 "debuggerPath": "/usr/bin/gdb",
                 "pipeProgram": "${env:windir}\\system32\\bash.exe",
-                "pipeArgs": ["-c"],
+                "pipeArgs": [
+                    "-c"
+                ],
                 "pipeCwd": ""
             },
             "setupCommands": [
@@ -58,7 +67,9 @@
             "pipeTransport": {
                 "debuggerPath": "/usr/bin/gdb",
                 "pipeProgram": "${env:windir}\\system32\\bash.exe",
-                "pipeArgs": ["-c"],
+                "pipeArgs": [
+                    "-c"
+                ],
                 "pipeCwd": ""
             },
             "setupCommands": [
@@ -114,6 +125,5 @@
                 }
             ]
         }
-
     ]
 }
