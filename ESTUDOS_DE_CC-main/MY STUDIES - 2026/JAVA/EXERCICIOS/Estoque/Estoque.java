@@ -17,7 +17,7 @@ public class Estoque{
             return ;
         }
         if(this.quantidade_item>=quantidade_item){
-            System.out.println("Item removido com sucesso \n");
+            System.out.println("Item removido com sucesso");
             this.quantidade_item -= quantidade_item;
 
 
