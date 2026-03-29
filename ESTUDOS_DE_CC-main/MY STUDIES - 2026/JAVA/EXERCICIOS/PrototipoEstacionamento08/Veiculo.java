@@ -21,14 +21,7 @@ Aplicar desconto para clientes fidelizados.
 Garantir que o estoque de vagas/tempo não fique inconsistente.
 Demonstração:
 Criar pelo menos dois veículos diferentes.
-Mostrar recibo com dados e valor total.
-
-Refatore o sistema para que o processamento de saída seja
-polimórfico.
-O código principal deve tratar todos os objetos apenas como
-Veiculo, mas o resultado final deve respeitar a regra de cada um.
-
-*/
+Mostrar recibo com dados e valor total. */
 
 
 public class Veiculo{
