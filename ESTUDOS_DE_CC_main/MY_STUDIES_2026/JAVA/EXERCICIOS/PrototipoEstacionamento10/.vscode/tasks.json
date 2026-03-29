@@ -1,0 +1,12 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compile Java Project",
+            "type": "shell",
+            "command": "javac model/*.java app/*.java",
+            "group": "build",
+            "problemMatcher": ["$javac"]
+        }
+    ]
+}
