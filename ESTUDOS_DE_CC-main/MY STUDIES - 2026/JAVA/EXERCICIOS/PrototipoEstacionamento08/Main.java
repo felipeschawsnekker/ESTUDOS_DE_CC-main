@@ -27,7 +27,14 @@ classe Moto, depois instancie um Carro e uma Moto na main.
 ● Desafio de Sobrecarga: Na classe Veiculo, crie dois construtores:
 ○ Um que recebe placa e modelo.
 ○ Outro que recebe apenas a placa (e define o modelo como
-"Generico"). */
+"Generico"). 
+
+Refatore o sistema para que o processamento de saída seja
+polimórfico.
+O código principal deve tratar todos os objetos apenas como
+Veiculo, mas o resultado final deve respeitar a regra de cada um.
+
+*/
 
 public class Main{
     public static void main(String[] args){
