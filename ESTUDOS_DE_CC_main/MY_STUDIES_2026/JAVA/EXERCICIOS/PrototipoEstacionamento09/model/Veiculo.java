@@ -1,4 +1,4 @@
-package ESTUDOS_DE_CC_main.MY_STUDIES_2026.JAVA.EXERCICIOS.PrototipoEstacionamento09.model;
+package model;
 
 public class Veiculo{
     protected String placa;

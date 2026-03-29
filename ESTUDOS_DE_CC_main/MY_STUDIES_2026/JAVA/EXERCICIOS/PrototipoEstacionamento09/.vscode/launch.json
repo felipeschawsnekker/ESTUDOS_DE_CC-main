@@ -6,7 +6,9 @@
             "name": "Run app.Main",
             "request": "launch",
             "mainClass": "app.Main",
+            "projectName": "PrototipoEstacionamento09",
             "preLaunchTask": "Compile Java Project"
         }
     ]
 }
+

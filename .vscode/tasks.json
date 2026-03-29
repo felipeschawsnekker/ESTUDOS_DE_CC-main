@@ -1,0 +1,25 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compile Java Project",
+            "type": "shell",
+            "command": "javac model/*.java app/*.java",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$javac"]
+        },
+        {
+            "label": "Run Java Main",
+            "type": "shell",
+            "command": "java -cp . app.Main",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "dependsOn": "Compile Java Project"
+        }
+    ]
+}
