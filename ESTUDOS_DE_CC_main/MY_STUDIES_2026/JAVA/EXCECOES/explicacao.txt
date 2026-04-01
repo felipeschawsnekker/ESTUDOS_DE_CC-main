@@ -1,1 +1,9 @@
+Em Java, exceções são objetos que representam erros ou situações inesperadas durante a execução do programa, interrompendo o fluxo normal. Todas derivam de Throwable, que se divide em Error (problemas graves do sistema, como falta de memória) e Exception (erros tratáveis).
 
+As exceções se classificam em:
+
+Checked: o compilador obriga a tratar ou declarar (ex: IOException);
+Unchecked (Runtime): não obrigam tratamento, geralmente erros de lógica (ex: NullPointerException);
+Errors: falhas críticas que não devem ser tratadas.
+
+O tratamento é feito com try-catch-finally, podendo também usar throw para lançar e throws para declarar exceções.
