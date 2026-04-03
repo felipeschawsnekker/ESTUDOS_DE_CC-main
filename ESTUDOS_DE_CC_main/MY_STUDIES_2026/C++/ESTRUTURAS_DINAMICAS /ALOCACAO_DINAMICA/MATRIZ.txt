@@ -1,0 +1,44 @@
+Ponteiros para ponteiros (opcional, mas útil)
+Às vezes precisamos de matrizes 2D dinâmicas:
+
+int linhas = 3, colunas = 4;
+
+#include <iostream>
+#include <cstdlib> // para malloc e free
+using namespace std;
+
+int main() {
+    int linhas = 3, colunas = 4;
+
+    // cria um ponteiro para ponteiros
+    int **matriz = (int**) malloc(linhas * sizeof(int*));
+    if (matriz == NULL) {
+        cout << "Erro de alocacao!";
+        return 1;
+    }
+
+    for (int i = 0; i < linhas; i++) {
+        matriz[i] = (int*) malloc(colunas * sizeof(int));
+        if (matriz[i] == NULL) {
+            cout << "Erro de alocacao!";
+            return 1;
+        }
+    }
+
+    // usa
+    matriz[0][0] = 10;
+    cout << matriz[0][0] << endl;
+
+    // libera
+    for (int i = 0; i < linhas; i++) {
+    if (matriz[i] != NULL) free(matriz[i]);
+}
+free(matriz);
+
+
+    return 0;
+}
+
+matriz é um ponteiro para ponteiros (int**).
+Cada linha é alocada separadamente.
+Necessário liberar cada linha primeiro, depois o ponteiro das linhas.

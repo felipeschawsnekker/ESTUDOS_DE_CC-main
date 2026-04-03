@@ -1,0 +1,17 @@
+3️⃣ Ponteiros e alocação dinâmica
+Quando usamos alocação dinâmica, sempre usamos ponteiros, porque a memória está no heap, não na pilha.
+Exemplo simples:
+
+int *p = (int*) malloc(sizeof(int)); // aloca 1 inteiro
+*p = 42; // acessa e define o valor
+cout << *p; // imprime 42
+free(p); // libera a memória
+
+assos importantes:
+
+Declarar um ponteiro do tipo certo (int*, float* etc).
+Alocar memória com malloc ou calloc.
+Acessar usando * ou [] se for array.
+Liberar memória com free() quando não for mais usada.
+
+⚠️ Nunca se esqueça de free! Caso contrário, seu programa terá memory leaks (vazamento de memória).

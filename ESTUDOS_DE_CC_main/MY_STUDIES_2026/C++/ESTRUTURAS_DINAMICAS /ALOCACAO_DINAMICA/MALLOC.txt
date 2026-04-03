@@ -1,0 +1,8 @@
+malloc
+
+malloc = memory allocation
+int *ptr = (int*) malloc(5 * sizeof(int));
+Aloca 5 inteiros no heap.
+
+Retorna um ponteiro para o início do bloco de memória.
+Não inicializa os valores — eles podem conter lixo.

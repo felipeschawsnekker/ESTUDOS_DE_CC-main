@@ -1,0 +1,23 @@
+Alocação estática (stack / pilha)
+
+Onde fica: na pilha (stack) da memória.
+Quando ocorre: em tempo de compilação.
+
+Características principais:
+Tamanho fixo, definido no código.
+A memória é automaticamente liberada quando a função ou escopo termina.
+Mais rápida que a alocação dinâmica.
+Não precisa de malloc ou free.
+
+Exemplo:
+#include <iostream>
+using namespace std;
+
+int main() {
+    int x = 10;       // variável simples
+    int arr[5];       // array de tamanho fixo
+
+    arr[0] = 100;
+    cout << arr[0] << endl; // imprime 100
+    return 0;
+}

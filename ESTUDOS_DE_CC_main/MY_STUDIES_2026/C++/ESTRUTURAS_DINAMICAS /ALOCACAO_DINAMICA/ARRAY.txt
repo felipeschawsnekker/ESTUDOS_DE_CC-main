@@ -1,0 +1,19 @@
+Exemplo de array de tamanho definido pelo usuário:
+
+int n;
+cout << "Quantos números? ";
+cin >> n;
+
+int *arr = (int*) malloc(n * sizeof(int));
+
+for(int i = 0; i < n; i++) {
+    arr[i] = i * 2; // preenche o array
+}
+
+for(int i = 0; i < n; i++) {
+    cout << arr[i] << " "; // imprime
+}
+
+free(arr); // libera memória
+
+Aqui arr funciona como um array normal, mas o tamanho não precisa ser conhecido em tempo de compilação.

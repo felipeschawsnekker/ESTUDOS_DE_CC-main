@@ -1,0 +1,8 @@
+calloc
+
+calloc = contiguous allocation
+int *ptr = (int*) calloc(5, sizeof(int));
+
+Aloca 5 inteiros no heap.
+Inicializa todos os valores com 0.
+Sintaxe: calloc(n_elementos, tamanho_elemento).

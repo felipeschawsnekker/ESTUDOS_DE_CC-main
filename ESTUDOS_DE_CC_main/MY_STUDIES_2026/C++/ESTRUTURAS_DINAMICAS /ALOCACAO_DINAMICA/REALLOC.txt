@@ -1,0 +1,8 @@
+Realloc
+
+realloc = reallocate
+ptr = (int*) realloc(ptr, 10 * sizeof(int));
+
+Redimensiona a memória previamente alocada.
+Se aumentar, a nova memória não é inicializada (com malloc) ou zerada (com calloc).
+Se reduzir, o excesso é liberado.

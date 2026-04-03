@@ -13,5 +13,36 @@ Podemos cercar o erro verificando o valor retorno da função malloc.
 exit()
 free()
 
+Quando ocorre: em tempo de execução (runtime).
+Características principais:
+Tamanho variável, definido enquanto o programa roda.
+Memória não é liberada automaticamente; precisamos usar free() ou delete em C++.
+Útil quando não sabemos quantos elementos precisaremos.
+Exemplo com malloc:
+#include <iostream>
+#include <cstdlib> // malloc, free
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Quantos números deseja armazenar? ";
+    cin >> n;
+
+    int *arr = (int*) malloc(n * sizeof(int)); // alocação dinâmica
+
+    for(int i=0; i<n; i++)
+        arr[i] = i * 10;
+
+    for(int i=0; i<n; i++)
+        cout << arr[i] << " ";
+
+    free(arr); // sempre liberar!
+    return 0;
+}
+
+Aqui o usuário decide o tamanho do array em tempo de execução.
+arr é um ponteiro que aponta para a memória alocada no heap.
+Se esquecermos o free, temos vazamento de memória.
+
 
 
