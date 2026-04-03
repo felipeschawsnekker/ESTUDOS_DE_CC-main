@@ -1,0 +1,51 @@
+Ponteiro é uma variável que armazena o endereço de memória
+int *ptr (é um ponteiro para um inteiro), ele guarda endereço,
+não um número comum.
+
+Pense que a memória do computador é uma rua cheia de casas numeradas:
+Casa 1000
+Casa 1004
+Casa 1008
+Casa 1012
+Cada casa guarda um valor
+
+Quando você cria uma variável:
+int x = 10;
+Significa:
+O computador escolheu uma casa, 
+por exemplo a casa 1000
+Colocou dentro dela o valor 10
+O nome "x" é só um 
+apelido que você usa no código
+
+x  → o valor (10)
+&x → o endereço (1000)
+&x significa: "onde x mora".
+
+int *ptr;
+Está criando uma variável que não guarda um valor, 
+mas um endereço.
+É como criar um papelzinho com um número de casa anotado.
+
+Quando você faz:
+ptr = &x;
+Você está dizendo:
+“ptr, anote aí o endereço onde x mora.”
+Se x está na casa 1000, então:
+ptr = 1000;
+ptr guarda o endereço de x
+*ptr vai até esse endereço e pega o valor
+
+ptr:	o endereço da casa	1000
+*ptr:	o que tem dentro da casa	10
+
+
+x       → valor: 10
+&x      → endereço: 1000
+ptr     → guarda o endereço 1000
+*ptr    → acessa o valor que está no endereço 1000 → 10
+
+cout << x;   // 10
+cout << &x;  // tipo 0x7ffdd21bb3e4
+ptr = &x;   // ptr guarda o endereço de x
+cout << *ptr; // 10

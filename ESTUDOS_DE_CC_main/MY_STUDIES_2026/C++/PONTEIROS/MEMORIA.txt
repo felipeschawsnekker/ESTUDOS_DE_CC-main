@@ -1,0 +1,9 @@
+Endereço → Conteúdo
+1000     →  10
+1004     →  25
+1008     →  7
+1012     →  0
+
+Cada gaveta tem um endereço único e guarda um valor
+Quando você declara uma varíavel (int x=10) 
+x está na gaveta/endereço 0x7ffe32abcc10
