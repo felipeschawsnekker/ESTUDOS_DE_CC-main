@@ -1,0 +1,32 @@
+O que é malloc?
+malloc significa:
+Memory Allocation (alocação de memória)
+Ele vem da biblioteca <cstdlib> (ou <stdlib.h> em C).
+void* malloc(size_t tamanho_em_bytes);
+
+pede ao sistema operacional uma quantidade de bytes
+retorna um ponteiro genérico (void*)
+NÃO inicializa a memória (vem com lixo)
+pode falhar → retorna NULL
+
+Como usar malloc para criar um único int
+#include <cstdlib>
+int *p = (int*) malloc(sizeof(int));
+sizeof(int) → quantos bytes um int usa (geralmente 4)
+malloc retorna um void*, então convertemos para int*
+p aponta para um espaço na heap
+*p = 50;
+cout <<*p; //50
+Sempre liberar a memória:
+free(p);
+
+Criando um array com malloc
+Vamos supor que o usuário decida o tamanho:
+int n;
+cin >> n;
+Agora alocamos:
+int *v = (int*) malloc(n * sizeof(int));
+
+Como inicializar memória com malloc?
+Se quiser memória zerada, use:
+int *v = (int*) calloc(n, sizeof(int));

@@ -1,0 +1,26 @@
+um valor:
+void f(int x) { 
+    x = 20; 
+    }  
+    int x=10;
+    f(x);
+    cout<<x; //10;
+Não altera o original.
+
+✔ um ponteiro:
+void f(int *p) {
+    *p = 20;
+    }
+
+int x = 10;
+f(&x);
+cout<<x; //20;
+
+Agora x vira 20, porque você alterou diretamente o
+endereço dele.
+
+Usado para:
+modificar variáveis em outra função
+economizar memória (não fazer cópias grandes)
+passar arrays (um array 
+vira ponteiro automaticamente)

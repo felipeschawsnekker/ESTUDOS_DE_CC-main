@@ -1,0 +1,15 @@
+Uma string em C é um array de caracteres, 
+terminado por '\0'.
+
+char nome[] = "Felipe";
+
+Na memória: F  e  l  i  p  e  \0
+Se você fizer:
+
+char *p = nome;
+
+
+Então:
+p aponta para 'F'
+*(p+1) é 'e'
+p[i] é equivalente a nome[i]

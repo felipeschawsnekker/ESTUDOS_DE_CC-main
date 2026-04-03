@@ -1,0 +1,39 @@
+int *p = &M[0][0];
+for(int k = 0; k < 12; k++)
+{
+    cout << *p << " ";
+    p++;     // avança para o próximo inteiro
+}
+
+✅ Níveis de ponteiros — Entenda p e pp
+✔️ Declaração 1
+int x = 10;
+x é uma variável normal, guardando o valor 10 na RAM.
+
+✔️ Declaração 2
+int *p = &x;
+p é um ponteiro para int.
+
+Ou seja:
+p guarda o endereço de x
+*p acessa o valor dentro de x → 10
+
+✔️ Declaração 3
+int **pp = &p;
+pp é um ponteiro para ponteiro de int.
+Ou seja:
+pp guarda o endereço de p
+*pp acessa o conteúdo de p → que é o endereço de x
+**pp acessa o conteúdo de x → 10
+🔥 Resumo visual
+x   = 10
+p   = &x       → aponta para x
+pp  = &p       → aponta para p
+
+
+Desreferenciando:
+*p    → 10
+*pp   → endereço de x
+**pp  → 10
+📌 Portanto:
+cout << **pp;  // 10

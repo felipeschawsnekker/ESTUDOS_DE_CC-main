@@ -1,0 +1,99 @@
+MATRIZ É UM ARRAY DE ARRAYS
+Quando você declara:
+int M[3][4];
+
+
+Significa:
+M tem 3 linhas
+Cada linha tem 4 colunas
+Cada linha é um array de 4 inteiros
+Linha 0 → [ a00 a01 a02 a03 ]
+Linha 1 → [ a10 a11 a12 a13 ]
+Linha 2 → [ a20 a21 a22 a23 ]
+
+Endereço     Valor
+1000         M[0][0]
+1004         M[0][1]
+1008         M[0][2]
+1012         M[0][3]
+
+1016         M[1][0]
+1020         M[1][1]
+1024         M[1][2]
+1028         M[1][3]
+
+1032         M[2][0]
+1036         M[2][1]
+1040         M[2][2]
+1044         M[2][3]
+
+
+No array 1D:
+int v[4];
+O nome v é do tipo:
+int*
+
+Mas na matriz 2D:
+int M[3][4];
+O nome M é do tipo:
+int (*)[4]
+“ponteiro para um array de 4 inteiros”
+
+M[0] → é um array de 4 inteiros
+Um array de 4 inteiros vira um int* quando usado em expressões
+Ou seja:
+M[0] == &M[0][0] 
+
+AGORA: O QUE É “M + 0”?
+
+Se M é um ponteiro para linha (int (*)[4]), então:
+M + 0 → endereço da linha 0
+M + 1 → endereço da linha 1
+M + 2 → endereço da linha 2
+
+
+Exemplo:
+M + 0  →  1000 (início da linha 0)
+M + 1  →  1016 (início da linha 1)
+M + 2  →  1032 (início da linha 2)
+
+*(M + 0)
+   ↓
+tipo: int*
+endereço de M[0][0]
+ponteiro para o primeiro ELEMENTO da linha
+
+Página 0: 4 linhas
+Página 1: 4 linhas
+Página 2: 4 linhas
+M + 0: É o endereço da página 0.
+
+M + 1: É o endereço da página 1.
+
+*(M + 0): É o endereço da primeira linha da página 0.
+
+*(M + i)
+*(M + 0) = &M[0][0] = 1000
+*(M + 1) = &M[1][0] = 1016
+*(M + 2) = &M[2][0] = 1032
+
+*(M + i) + j
+*(M + 0) + 0 -> 1000  → M[0][0]
+*(M + 0) + 1 -> 1004  → M[0][1]
+*(M + 0) + 2 -> 1008  → M[0][2]
+*(M + 0) + 3 -> 1012  → M[0][3]
+
+*(*(M + i) + j) == M[i][j]
+
+*(*(M + i)) == M[i][0]
+
+Expressão	Equivale a	    Significa
+*(M+i)	    &M[i][0]	    ponteiro para o início da linha i
+*(*(M+i))	M[i][0]	        valor do primeiro elemento da linha i
+
+1  2  3  4
+5  6  7  8
+9 10 11 12
+*(M+0)    + (0)    → endereço de 1
+*(*(M+0)  +  0)    → 1
+*(M + 1)  + (2)    == &M[1][2] 

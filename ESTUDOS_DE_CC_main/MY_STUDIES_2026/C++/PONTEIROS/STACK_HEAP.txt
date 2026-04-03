@@ -1,0 +1,66 @@
+Stack (pilha)
+variáveis locais
+geradas e destruídas automaticamente
+mais rápido
+NÃO pode crescer demais
+Ex:
+int x;     // stack
+int v[10]; // stack
+
+
+Heap
+memória dinâmica (você aloca e libera)
+grande
+se você NÃO liberar → memory leak
+Ex:
+int *p = new int;
+
+Criar um inteiro na heap:
+int *p = new int;   // alocou memória
+*p = 30;            // usou
+delete p;           // liberou
+
+Criar um array:
+int *v = new int[10];
+delete[] v;
+new e delete — ALOCAÇÃO DINÂMICA DE MEMÓRIA
+
+new  → cria memória na heap
+delete → libera memória
+
+⭐ 6.1 Alocando um único inteiro
+int *p = new int;     // reserva espaço para 1 int na heap
+*p = 50;              // atribui valor
+delete p;             // libera a memória
+
+
+Etapas:
+new int pede ao sistema operacional:
+“me dê 4 bytes para guardar um inteiro”
+retorna o endereço dessa nova memória
+p guarda esse endereço
+delete libera a memória
+⭐ 6.2 Alocando um inteiro com valor inicial
+
+int *p = new int(42);
+cout << *p;  // 42
+delete p;
+
+⭐ 7. ARRAYS DINÂMICOS (new [] e delete [])
+Às vezes você NÃO sabe quantos elementos vai ter.
+Exemplo: o usuário digita o tamanho:
+int n;
+cin >> n;
+int *v = new int[n];   // cria vetor de n inteiros
+
+Para acessar:
+v[0] = 10;     // OK
+*(v + 1) = 20; // também OK (equivalente)
+
+Para liberar memória:
+delete[] v;
+
+
+⚠ IMPORTANTE:
+new → usa delete
+new[] → usa delete[]

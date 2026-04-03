@@ -1,0 +1,14 @@
+PONTEIRO void*
+Um void* é um ponteiro que pode apontar 
+para qualquer coisa:
+
+void *p;
+int x = 10;
+p = &x;
+
+Mas você NÃO pode fazer:
+*p;
+
+Porque não sabe o tipo.
+Precisa converter:
+cout << *(int*)p;
