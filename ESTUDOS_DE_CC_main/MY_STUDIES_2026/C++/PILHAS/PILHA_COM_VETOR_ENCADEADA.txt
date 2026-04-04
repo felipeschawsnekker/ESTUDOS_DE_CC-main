@@ -7,9 +7,9 @@ struct NO {
 };
 
 📌 Estrutura da pilha
-struct Pilha {
+type struct Pilha {
     NO* topo;
-};
+}NO;
 
 Inicializar
 void inicializar(Pilha *p){
@@ -58,3 +58,203 @@ libera memória
 
 É literalmente uma pilha real:
 coloca em cima, tira de cima.
+
+✅ O que é NO?
+É uma estrutura que guarda:
+um valor
+um ponteiro para outro NO
+struct NO {
+    int dado;
+    NO *prox;
+};
+
+
+Ele permite criar cadeias de nós — como elos de uma corrente.
+✅ Por que funciona como pilha?
+A pilha guarda só o ponteiro para o topo:
+struct Pilha {
+    NO *topo;
+};
+
+push
+cria um novo NO
+faz ele apontar para o antigo topo
+atualiza o topo
+pop
+pega o topo
+move o topo para o próximo
+apaga o nó removido
+🎯 Resumo
+Usa-se NO porque ele permite uma pilha dinâmica, feita com nós encadeados, sem tamanho fixo.
+
+✅ 1. O nó da pilha
+typedef struct NO {
+    int dado;
+    NO* prox;
+} NO;
+
+
+Tradução leiga:
+
+Isso cria um nó, que é como uma caixinha contendo:
+um valor (dado)
+um ponteiro para o próximo nó
+
+Visual:
+
++-----------+
+| dado      |
+| prox ---> | (aponta para outro nó)
++-----------+
+
+✅ 2. A pilha
+typedef struct Pilha {
+    NO* topo;
+} Pilha;
+
+
+Tradução:
+
+A pilha só precisa saber quem é o topo da pilha.
+
+Desenho:
+
+Pilha
+  └── topo → [nó do topo]
+
+❗ Importante de entender
+
+A pilha NÃO guarda todos os nós.
+Ela só guarda o primeiro (o topo).
+
+Os outros nós se ligam em cadeia:
+
+topo → [30] → [20] → [10] → NULL
+
+✅ 3. init()
+void init(Pilha &p){
+    p.topo = nullptr;
+}
+
+
+Tradução:
+
+“A pilha começa vazia.”
+O topo não aponta para nada.
+topo → NULL
+
+✅ 4. push (empilhar)
+void push(Pilha &p, int valor){
+    NO *novo = (NO*)malloc(sizeof(NO));
+    novo->dado = valor;
+    novo->prox = p.topo;
+    p.topo = novo;
+}
+
+
+Vamos explicar cada linha:
+
+🔹 (1) Criar um novo nó
+NO *novo = (NO*)malloc(sizeof(NO));
+
+
+Significa:
+
+Pegue espaço na memória para um novo nó.
+novo aponta para esse nó.
+
+Representação:
+
+novo → [ ? ]
+
+🔹 (2) Colocar o valor dentro do nó
+novo->dado = valor;
+
+
+Agora o nó fica assim:
+
+novo → [ valor ]
+
+🔹 (3) Conectar o novo nó à pilha
+novo->prox = p.topo;
+
+
+Isso faz ele apontar para o antigo topo.
+
+Exemplo: se a pilha tinha:
+
+topo → [20] → [10] → NULL
+
+
+Depois dessa linha:
+
+novo → [30] → [20] → [10] → NULL
+
+🔹 (4) Atualizar o topo da pilha
+p.topo = novo;
+
+
+Agora a pilha aponta para o novo nó:
+
+topo → [30] → [20] → [10] → NULL
+
+🎯 Resumo do push:
+Criar nó
+Colocar valor nele
+Apontar para o antigo topo
+Atualizar topo
+✅ 5. pop (desempilhar)
+NO *rem = p.topo;
+int valor = rem->dado;
+p.topo = rem->prox;
+free(rem);
+return valor;
+
+
+Vamos quebrar isso:
+
+🔹 (1) Guardar o nó que será removido
+NO *rem = p.topo;
+
+rem → [30] → [20] → [10]
+topo → rem
+
+🔹 (2) Pegar o valor para retornar
+valor = rem->dado;
+
+🔹 (3) Avançar o topo
+p.topo = rem->prox;
+
+
+Agora:
+
+topo → [20] → [10] → NULL
+rem → [30]  (desligado da pilha)
+
+🔹 (4) Liberar memória desse nó
+free(rem);
+
+
+Rem saiu da pilha definitivamente.
+
+🧠 Resumo completo visual
+Depois de 3 pushes (10, 20, 30):
+topo → [30] → [20] → [10] → NULL
+
+Após um pop:
+topo → [20] → [10] → NULL
+
+
+E retornou 30.
+
+📌 ENTÃO O QUE É “→” ?
+
+-> é apenas uma forma curta de escrever:
+
+(*ponteiro).campo
+
+
+Ou seja:
+
+novo->dado = o dado dentro do nó apontado por novo
+novo->prox = o ponteiro prox do nó apontado por novo
