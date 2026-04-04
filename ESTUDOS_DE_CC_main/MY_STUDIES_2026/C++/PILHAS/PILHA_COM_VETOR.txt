@@ -1,0 +1,45 @@
+strutura básica
+struct Pilha {
+    int dados[100];   // capacidade fixa
+    int topo;         // índice do elemento mais alto
+};
+
+📌 Inicialização
+void inicializar(Pilha &p) {
+    p.topo = -1;  // pilha vazia
+}
+
+📌 Push (empilhar)
+void push(Pilha &p, int x) {
+    if (p.topo == 99) {
+        cout << "Pilha cheia!\n";
+        return;
+    }
+    p.dados[++p.topo] = x;
+}
+
+📌 Pop (desempilhar)
+int pop(Pilha &p) {
+    if (p.topo == -1) {
+        cout << "Pilha vazia!\n";
+        return -1;
+    }
+    return p.dados[p.topo--];
+}
+
+✔ Prós
+Simples
+Rápido
+Fácil de implementar
+❌ Contras
+Tamanho fixo
+Pode desperdiçar memória
+
+PUSH(x):
+    topo++
+    dados[topo] = x
+
+POP():
+    aux = dados[topo]
+    topo--
+    return aux

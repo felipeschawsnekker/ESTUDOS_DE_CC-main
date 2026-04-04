@@ -11,7 +11,7 @@ typedef struct Pilha{
     NO *topo;
 }PILHA;
 
-void inicializar(PILHA *p){
+void inicializar(PILHA *p){ 
     p->topo=NULL;
 }
 

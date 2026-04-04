@@ -1,0 +1,22 @@
+A forma correta e padrão na indústria.
+
+#include <stack>
+using namespace std;
+
+int main() {
+    stack<int> p;
+
+    p.push(10);
+    p.push(20);
+    p.push(30);
+
+    cout << p.top();  // 30
+    p.pop();
+}
+
+✔ Vantagens:
+100% segura
+Sem ponteiros
+Sem malloc/free
+Baseada em deque (eficiente)
+Usada em entrevistas de emprego

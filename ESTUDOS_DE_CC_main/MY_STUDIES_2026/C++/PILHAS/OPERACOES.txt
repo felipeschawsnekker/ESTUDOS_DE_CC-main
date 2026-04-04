@@ -1,0 +1,18 @@
+Operações fundamentais
+
+Todas as pilhas — com vetor, lista ou <stack> — têm as mesmas ações:
+
+✔ push(x) → empilha
+Coloca um elemento no topo.
+
+✔ pop() → desempilha
+Remove o elemento do topo.
+
+✔ top() (ou peek)
+Retorna o valor do topo sem remover.
+
+✔ empty()
+Verifica se está vazia.
+
+✔ size()
+Retorna quantos elementos tem.

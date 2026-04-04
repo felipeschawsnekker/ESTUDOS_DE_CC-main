@@ -1,0 +1,10 @@
+O que é uma PILHA?
+Uma pilha é uma estrutura onde o último elemento a entrar é o primeiro a sair.
+
+Chamamos isso de:
+LIFO — Last In, First Out
+Exemplos da vida real:
+
+Uma pilha de pratos
+Pilha de roupas
+O último que você colocou é o primeiro que você pega

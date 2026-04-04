@@ -1,0 +1,60 @@
+Estrutura mais flexível, tamanho variável.
+
+📌 Nó da lista
+struct NO {
+    int dado;
+    NO* prox;
+};
+
+📌 Estrutura da pilha
+struct Pilha {
+    NO* topo;
+};
+
+Inicializar
+void inicializar(Pilha *p){
+    p->topo = NULL;
+}
+
+Push (empilhar)
+void push(Pilha *p, int valor){
+    NO* no = (NO*) malloc(sizeof(NO));
+    no->dado = valor;
+    no->prox = p->topo;
+    p->topo = no;
+}
+
+Pop (desempilhar)
+int pop(Pilha *p){
+    if (p->topo == NULL){
+        cout << "Pilha vazia!\n";
+        return -1;
+    }
+
+    NO* aux = p->topo;
+    int dado = aux->dado;
+
+    p->topo = aux->prox;
+    free(aux);
+
+    return dado;
+}
+
+
+✔ Cresce dinamicamente
+✔ Nunca estoura capacidade
+❌ Um pouco mais lenta que vetor
+❌ Requer malloc/free
+
+PUSH (insere)
+cria nó
+aponta para topo antigo
+atualiza topo
+
+POP (remove)
+pega topo
+move topo para o próximo
+libera memória
+
+É literalmente uma pilha real:
+coloca em cima, tira de cima.
