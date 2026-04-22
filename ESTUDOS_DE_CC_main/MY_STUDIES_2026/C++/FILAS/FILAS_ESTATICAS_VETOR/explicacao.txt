@@ -1,1 +1,129 @@
+1. O que é uma fila?
 
+Uma fila é uma estrutura onde:
+
+você insere no final
+você remove do início
+
+👉 Igual fila de banco:
+
+quem chega primeiro sai primeiro
+👉 Isso é chamado de FIFO (First In, First Out)
+📦 2. Como representar isso no C++?
+
+A gente usa um vetor (array) de tamanho fixo.
+
+Exemplo:
+
+int dados[5];
+
+Esse vetor vai guardar os elementos da fila.
+
+📍 3. Precisamos de dois índices
+
+Para controlar a fila, usamos:
+
+front → onde começa a fila
+rear → onde termina a fila
+
+Estado inicial:
+
+front = 0;
+rear = -1;
+
+👉 Por que -1?
+Porque ainda não tem nenhum elemento
+
+🧱 4. Criando a estrutura com typedef
+
+Aqui estamos criando um “tipo novo” chamado Fila:
+
+typedef struct {
+    int dados[5];
+    int front;
+    int rear;
+} Fila;
+
+👉 Isso significa:
+
+dados → guarda os valores
+front → início
+rear → fim
+⚙️ 5. Inicializar a fila
+
+Antes de usar, precisamos preparar:
+
+void inicializar(Fila *f) {
+    f->front = 0;
+    f->rear = -1;
+}
+
+👉 Fila *f = ponteiro para a fila
+👉 f->front = acessa o campo dentro da estrutura
+
+➕ 6. Inserir (enqueue)
+Colocar um elemento no final:
+void enqueue(Fila *f, int valor) {
+    f->rear++;                 // anda o final
+    f->dados[f->rear] = valor; // guarda o valor
+}
+
+Exemplo:
+
+[10, 20, 30, _, _]
+ front=0
+ rear=2
+➖ 7. Remover (dequeue)
+
+Remover do início:
+
+void dequeue(Fila *f) {
+    cout << f->dados[f->front] << endl;
+    f->front++; // anda o início
+}
+
+👉 NÃO apaga o valor — só “anda o ponteiro”
+
+👀 8. Verificar estados importantes
+Fila vazia:
+bool vazia(Fila *f) {
+    return f->front > f->rear;
+}
+Fila cheia:
+bool cheia(Fila *f) {
+    return f->rear == 4;
+}
+🖥️ 9. Visualizando na prática
+Inserindo:
+enqueue(10)
+enqueue(20)
+enqueue(30)
+
+[10, 20, 30, _, _]
+Removendo:
+dequeue()
+
+front anda →
+[10, 20, 30, _, _]
+     ↑
+
+Agora a fila “começa” no 20
+
+⚠️ 10. Problema importante
+
+Mesmo removendo elementos:
+
+[10, 20, 30, 40, 50]
+
+Se rear chegar no final (posição 4), a fila fica cheia, mesmo que tenha espaço no início.
+
+👉 Isso é limitação da fila estática simples
+
+💡 Resumão
+Usa vetor de tamanho fixo
+Insere no final (rear)
+Remove do início (front)
+Simples, mas pode desperdiçar espaço
+
+Se quiser, posso te explicar o próximo passo natural:
+👉 fila circular (a versão “correta” usada em provas e sistemas)
