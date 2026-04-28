@@ -1,10 +1,7 @@
 package model;
 
-public class Consulta {
-    protected double valorBase = 100.0; // Valor padrão para qualquer consulta
+public abstract class Consulta {
+    protected double valorBase = 100.0;
 
-    // Método que será alterado pelas classes filhas (Polimorfismo)
-    public double calcularValor(Paciente p) {
-        return valorBase; 
-    }
+    public abstract double calcularValor(Paciente paciente);
 }
