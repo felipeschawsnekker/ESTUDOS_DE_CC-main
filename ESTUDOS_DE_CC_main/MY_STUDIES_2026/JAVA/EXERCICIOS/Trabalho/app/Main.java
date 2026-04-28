@@ -4,26 +4,38 @@ import model.*;
 
 public class Main {
     public static void main(String[] args) {
-        // Criando os objetos
+
         Medico medico = new Medico("Dr. Silva", "Cardiologia");
-        Paciente paciente1 = new Paciente("João", true);  // Tem plano
-        Paciente paciente2 = new Paciente("Maria", false); // Não tem plano
 
-        // Criando as situações de cobrança
-        Consulta cPlano = new ConsultaPlano();
-        Consulta cParticular = new ConsultaParticular();
+        Paciente p1 = new Paciente("João", true);
+        Paciente p2 = new Paciente("Maria", false);
 
-        System.out.println("--- RECIBOS DE CONSULTA ---");
-
-        // Executando a lógica
+        System.out.println("=== RECIBOS DE CONSULTA ===");
         System.out.println("Médico: " + medico.getNome());
-        
-        System.out.println("Paciente: " + paciente1.getNome());
-        System.out.println("Cobrança (Plano): R$ " + cPlano.calcularValor(paciente1));
-        
+
         System.out.println("---------------------------");
 
-        System.out.println("Paciente: " + paciente2.getNome());
-        System.out.println("Cobrança (Particular): R$ " + cParticular.calcularValor(paciente2));
+        // Decide o tipo de consulta baseado no paciente
+        Consulta c1;
+        if (p1.isTemPlano()) {
+            c1 = new ConsultaPlano();
+        } else {
+            c1 = new ConsultaParticular();
+        }
+
+        System.out.println("Paciente: " + p1.getNome());
+        System.out.println("Valor: R$ " + c1.calcularValor(p1));
+
+        System.out.println("---------------------------");
+
+        Consulta c2;
+        if (p2.isTemPlano()) {
+            c2 = new ConsultaPlano();
+        } else {
+            c2 = new ConsultaParticular();
+        }
+
+        System.out.println("Paciente: " + p2.getNome());
+        System.out.println("Valor: R$ " + c2.calcularValor(p2));
     }
 }
