@@ -8,5 +8,7 @@ public class Paciente extends Pessoa {
         this.temPlano = temPlano;
     }
 
-    public boolean isTemPlano() { return temPlano; }
+    public boolean isTemPlano() {
+        return temPlano;
+    }
 }
