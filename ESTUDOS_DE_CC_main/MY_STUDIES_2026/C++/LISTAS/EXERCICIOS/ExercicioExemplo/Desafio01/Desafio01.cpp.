@@ -1,0 +1,53 @@
+//Dado uma lista que armazene números, escreva uma função que forneça o maior, o menor e a media aritmética dos elementos
+/*Dado uma lista que armazene números, 
+escreva uma função que forneça o maior, 
+o menor e a media aritmética dos elementos*/
+
+#include <iostream>
+#include <list>
+#include <ctime>
+#include <cstdlib>
+using namespace std;
+int maior;
+int menor;
+void Maior(list<int> numero){
+    maior=numero.front();
+    for(int n : numero){
+        if(n>maior){
+            maior=n;
+        }
+    }
+    cout<<"The biggest number is: "<<maior<<endl;
+}
+
+void Menor(list<int> numero){
+    menor=numero.front();
+    for(int n : numero){
+        if(n<menor){
+            menor=n;
+        }
+    }
+    cout<<"The biggest number is: "<<menor<<endl;
+}
+
+void Adicionar(list<int>&numero){
+    srand(time(0));
+    for(int i=0; i<5; i++){
+        int num=((rand()%49)+7);
+        numero.push_front(num);
+    }
+    cout<<endl;
+}
+
+
+int main(){
+    srand(time(0));
+    list<int> armazenar;
+    Adicionar(armazenar);
+    Maior(armazenar);
+    Menor(armazenar);
+    
+    
+}
+
+
