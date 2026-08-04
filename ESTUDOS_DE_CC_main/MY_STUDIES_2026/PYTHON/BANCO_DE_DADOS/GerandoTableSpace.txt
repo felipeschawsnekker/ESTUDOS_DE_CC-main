@@ -1,0 +1,33 @@
+Tablespace é um espaço lógico onde o Oracle armazena os dados do banco de dados. Ele organiza as tabelas, índices e outros objetos em arquivos físicos chamados datafiles.
+
+Explicação simples
+
+Imagine um armário de arquivos:
+
+Banco de dados → o prédio.
+Tablespace → uma sala do prédio.
+Datafile (.dbf) → um armário dentro da sala.
+Tabelas → as pastas guardadas no armário.
+
+Quando você cria um tablespace, está criando um local onde o Oracle poderá armazenar os dados.
+
+Exemplo
+CREATE TABLESPACE DADOS
+DATAFILE 'dados01.dbf'
+SIZE 100M;
+
+O que esse comando faz?
+
+Cria um tablespace chamado DADOS.
+Cria um arquivo físico chamado dados01.dbf.
+Reserva 100 MB para armazenar informações.
+
+Depois, você pode criar um usuário e definir que seus objetos serão gravados nesse tablespace:
+
+CREATE USER joao
+IDENTIFIED BY senha
+DEFAULT TABLESPACE DADOS;
+
+Assim, todas as tabelas criadas pelo usuário joao serão armazenadas no tablespace DADOS.
+
+Resumindo: um tablespace é um espaço organizado dentro do Oracle onde ficam armazenados os dados do banco de dados. Ele utiliza um ou mais arquivos físicos (datafiles) para guardar essas informações.
