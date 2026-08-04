@@ -1,0 +1,16 @@
+Banco de dados é um conjunto organizado de informações armazenadas eletronicamente, permitindo que os dados sejam consultados, inseridos, alterados e excluídos de forma rápida e segura.
+
+Ou, de forma ainda mais resumida:
+
+Banco de dados é um sistema utilizado para armazenar e organizar dados, facilitando seu acesso e gerenciamento.
+
+Exemplo:
+Um sistema de uma escola pode ter um banco de dados contendo:
+
+Alunos
+Professores
+Turmas
+Notas
+Matrículas
+
+Todos esses dados ficam organizados para que o sistema possa consultá-los quando necessário.
