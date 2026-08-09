@@ -13,32 +13,38 @@ int value;
 bool cadastrado = false;
 
 void Menu(){
-    cout<<"====================MENU===================="<<endl;
-    cout<<"ENTRADA DAS INFORMAÇÕES - DIGITE 1"<<endl;
-    cout<<"ORDENAÇÃO DO NOME EM ORDEM ASCENDENTE - DIGITE 2"<<endl;
-    cout<<"GRAVAÇÃO DAS INFORMAÇÕES NO ARQUIVO - DIGITE 3"<<endl;
-    cout<<"LEITURA DO ARQUIVO - DIGITE 4"<<endl;
-    cout<<"LEITURA DAS INFORMAÇÕES DA ESTRUTURA - DIGITE 5"<<endl;
-    cout<<"SAIR - DIGITE 6"<<endl;
-    cout<<endl;
+    cout<<"┌──────────────────────────────────────────┐"<<endl;
+    cout<<"│               MENU PRINCIPAL             │"<<endl;
+    cout<<"├──────────────────────────────────────────┤"<<endl;
+    cout<<"│  [1] Cadastrar Informações               │"<<endl;
+    cout<<"│  [2] Ordenar Nomes (Ordem Ascendente)    │"<<endl;
+    cout<<"│  [3] Gravar Informações no Arquivo       │"<<endl;
+    cout<<"│  [4] Ler Informações do Arquivo          │"<<endl;
+    cout<<"│  [5] Exibir Informações da Estrutura     │"<<endl;
+    cout<<"│  [6] Sair                                │"<<endl;
+    cout<<"└──────────────────────────────────────────┘"<<endl;
+    cout<<" Opção desejada: ";
     cin>>value;
 }
 
 Cad pessoa;
 
 void CadastrarIndividuos(){
+    cout<<"\n=== CADASTRAR INDIVÍDUOS ==="<<endl;
     for(int i=0; i<tam; i++){
-        cout<<"INDIVIDUO N* "<<i<<" - CONTA: "; cin>>pessoa[i].conta;
+        cout<<"\n[ INDIVÍDUO N° "<<i+1<<" ]"<<endl;
+        cout<<" Conta: "; cin>>pessoa[i].conta;
         cin.ignore();
-        cout<<"INDIVIDUO N* "<<i<<" - NOME: "; gets(pessoa[i].nome);
-        cout<<"INDIVIDUO N* "<<i<<" - SALDO: "; cin>>pessoa[i].saldo;
+        cout<<" Nome: "; cin>>(pessoa[i].nome);
+        cout<<" Saldo: "; cin>>pessoa[i].saldo;
     }
     cadastrado = true;
+    cout<<"\n>> Cadastro realizado com sucesso! <<\n"<<endl;
 }
 
 void OrdenarNomes(){
     if(!cadastrado){
-        cout<<"NENHUM DADO CADASTRADO!"<<endl;
+        cout<<"\n>> ERRO: Nenhum dado cadastrado! <<\n"<<endl;
         return;
     }
     struct Cadastro aux;
@@ -51,11 +57,12 @@ void OrdenarNomes(){
             }
         }
     }
+    cout<<"\n>> Nomes ordenados com sucesso! <<\n"<<endl;
 }
 
 void GravarArquivo(){
     if(!cadastrado){
-        cout<<"NENHUM DADO CADASTRADO PARA GRAVAR!"<<endl;
+        cout<<"\n>> ERRO: Nenhum dado cadastrado para gravar! <<\n"<<endl;
         return;
     }
     ofstream arq("dados.txt");
@@ -65,37 +72,46 @@ void GravarArquivo(){
         arq<<pessoa[i].saldo<<endl;
     }
     arq.close();
+    cout<<"\n>> Dados gravados no arquivo com sucesso! <<\n"<<endl;
 }
 
 void LerArquivo(){
     ifstream arq("dados.txt");
     if(!arq.is_open()){
-        cout<<"ERRO AO ABRIR O ARQUIVO OU ARQUIVO INEXISTENTE!"<<endl;
+        cout<<"\n>> ERRO: Arquivo inexistente ou erro ao abrir! <<\n"<<endl;
         return;
     }
     Cadastro temp;
+    cout<<"\n=== DADOS LIDOS DO ARQUIVO ==="<<endl;
     for(int i=0; i<tam; i++){
         arq>>temp.conta;
         arq.ignore();
         arq.getline(temp.nome, 30);
         arq>>temp.saldo;
-        cout<<"INDIVIDUO N* "<<i<<" - CONTA: "<<temp.conta<<endl;
-        cout<<"INDIVIDUO N* "<<i<<" - NOME: "<<temp.nome<<endl;
-        cout<<"INDIVIDUO N* "<<i<<" - SALDO: "<<temp.saldo<<endl;
+        cout<<"----------------────────────"<<endl;
+        cout<<" INDIVÍDUO N° "<<i+1<<endl;
+        cout<<" Conta: "<<temp.conta<<endl;
+        cout<<" Nome:  "<<temp.nome<<endl;
+        cout<<" Saldo: "<<temp.saldo<<endl;
     }
+    cout<<"----------------────────────\n"<<endl;
     arq.close();
 }
 
 void LerEstrutura(){
     if(!cadastrado){
-        cout<<"NENHUM DADO CADASTRADO!"<<endl;
+        cout<<"\n>> ERRO: Nenhum dado cadastrado! <<\n"<<endl;
         return;
     }
+    cout<<"\n=== DADOS DA ESTRUTURA (MEMÓRIA) ==="<<endl;
     for(int i=0; i<tam; i++){
-        cout<<"INDIVIDUO N* "<<i<<" - CONTA: "<<pessoa[i].conta<<endl;
-        cout<<"INDIVIDUO N* "<<i<<" - NOME: "<<pessoa[i].nome<<endl;
-        cout<<"INDIVIDUO N* "<<i<<" - SALDO: "<<pessoa[i].saldo<<endl;
+        cout<<"----------------────────────"<<endl;
+        cout<<" INDIVÍDUO N° "<<i+1<<endl;
+        cout<<" Conta: "<<pessoa[i].conta<<endl;
+        cout<<" Nome:  "<<pessoa[i].nome<<endl;
+        cout<<" Saldo: "<<pessoa[i].saldo<<endl;
     }
+    cout<<"----------------────────────\n"<<endl;
 }
 
 int main(){
@@ -122,7 +138,9 @@ int main(){
                 LerEstrutura();
                 Menu();
                 break;
-            case 6:
+            default:
+                cout<<"\n>> Opção inválida! <<\n"<<endl;
+                Menu();
                 break;
         }
     }
