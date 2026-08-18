@@ -6,12 +6,12 @@ using namespace std;
 typedef struct no{
     int valor;
     struct no *dir, *esq;
-} NoArv;
+} NO*; // Usando NO* conforme sua especificação
 
 // Função para inserir um novo valor na árvore binária de busca
-NoArv* Inserir(NoArv *raiz, int num) {
+NO* Inserir(NO *raiz, int num) {
     if (raiz == NULL) {
-        NoArv *novo = new NoArv();
+        NO *novo = new NO();
         novo->valor = num;
         novo->esq = NULL;
         novo->dir = NULL;
@@ -25,8 +25,8 @@ NoArv* Inserir(NoArv *raiz, int num) {
     }
 }
 
-// Imprime a árvore de forma hierárquica usando o nível para identação
-void Imprimir(NoArv *raiz, int Nivel){
+// Imprime a árvore de forma hierárquica
+void Imprimir(NO *raiz, int Nivel){
     if(raiz != NULL){
         Imprimir(raiz->dir, Nivel + 1);
         for(int i = 0; i < Nivel; i++)
@@ -37,7 +37,7 @@ void Imprimir(NoArv *raiz, int Nivel){
 }
 
 // Busca um valor na árvore
-NoArv* Buscar(NoArv *raiz, int chave){
+NO* Buscar(NO *raiz, int chave){
     if(raiz == NULL || raiz->valor == chave)
         return raiz;
     if(chave < raiz->valor)
@@ -47,7 +47,7 @@ NoArv* Buscar(NoArv *raiz, int chave){
 }
 
 // Calcula a altura da árvore
-int Altura(NoArv *raiz){
+int Altura(NO *raiz){
     if(raiz == NULL)
         return -1;
     else {
@@ -61,7 +61,7 @@ int Altura(NoArv *raiz){
 }
 
 // Remove um nó da árvore
-NoArv* RemoverNo(NoArv *raiz, int chave) {
+NO* RemoverNo(NO *raiz, int chave) {
     if(raiz == NULL)
         return NULL;
     
@@ -73,18 +73,18 @@ NoArv* RemoverNo(NoArv *raiz, int chave) {
         }
         // Nó apenas com filho à direita
         if(raiz->esq == NULL) {
-            NoArv *temp = raiz->dir;
+            NO *temp = raiz->dir;
             delete raiz;
             return temp;
         }
         // Nó apenas com filho à esquerda
         if(raiz->dir == NULL) {
-            NoArv *temp = raiz->esq;
+            NO *temp = raiz->esq;
             delete raiz;
             return temp;
         }
         // Nó com dois filhos: pega o menor do ramo direito
-        NoArv *temp = raiz->dir;
+        NO *temp = raiz->dir;
         while(temp->esq != NULL)
             temp = temp->esq;
         raiz->valor = temp->valor;
@@ -115,7 +115,7 @@ int Menu(){
 }
 
 int main() {
-    NoArv *raiz = NULL;
+    NO *raiz = NULL;
     int opcao, valor;
 
     do {
