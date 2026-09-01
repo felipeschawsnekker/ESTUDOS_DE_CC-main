@@ -1,0 +1,137 @@
+=============================================================================
+GUIA PRÁTICO: ERROS E EXCEÇÕES EM PYTHON
+=============================================================================
+Este módulo aborda os conceitos essenciais sobre tratamento de erros e 
+exceções em Python, contendo exemplos práticos para documentação e estudos.
+=============================================================================
+"""
+
+# =============================================================================
+# 1. DIFERENÇA ENTRE ERROS E EXCEÇÕES
+# =============================================================================
+# - Erros (SyntaxError/IndentationError): Problemas na estrutura do código 
+#   que impedem a execução. O interpretador nem chega a rodar o script.
+# - Exceções (Exceptions): Erros detectados durante a execução (runtime). 
+#   O programa estava sintaticamente correto, mas ocorreu um evento inesperado.
+
+
+# =============================================================================
+# 2. BLOCO BÁSICO: TRY, EXCEPT
+# =============================================================================
+# O bloco 'try' envolve o código de risco. O 'except' captura a exceção 
+# caso algo dê errado, evitando que o programa quebre abruptamente.
+
+def divisao_segura(a, b):
+    try:
+        resultado = a / b
+    except ZeroDivisionError:
+        print("Erro: Não é possível dividir por zero!")
+        return None
+    return resultado
+
+print("--- Teste Try/Except ---")
+print(divisao_segura(10, 2))  # Saída: 5.0
+print(divisao_segura(10, 0))  # Captura a exceção e retorna None
+
+
+# =============================================================================
+# 3. CAPTURANDO MÚLTIPLAS EXCEÇÕES E O OBJETO DO ERRO
+# =============================================================================
+# É possível tratar diferentes exceções separadamente e capturar a mensagem 
+# original do erro usando a cláusula 'as'.
+
+def converter_para_inteiro(valor):
+    try:
+        numero = int(valor)
+        resultado = 100 / numero
+        return resultado
+    except ValueError as e:
+        print(f"Erro de valor: '{valor}' não é um número válido. Detalhes: {e}")
+    except ZeroDivisionError:
+        print("Erro: Divisão por zero não permitida.")
+    except Exception as e:
+        # Captura qualquer outra exceção genérica imprevista
+        print( inesperado: {e}")
+
+print("\n--- Teste Múltiplas Exceções ---")
+converter_para_inteiro("abc")  # Aciona ValueError
+converter_para_inteiro("0")    # Aciona ZeroDivisionError
+
+
+# =============================================================================
+# 4. ELSE E FINALLY
+# =============================================================================
+# - else: Executado APENAS se nenhuma exceção ocorrer no bloco 'try'.
+# - finally: Executado SEMPRE, independentemente de ter ocorrido erro ou não 
+#   (ideal para fechar conexões de arquivos, banco de dados ou redes).
+
+def exemplo_else_finally(caminho_arquivo):
+    print("\n--- Teste Else/Finally ---")
+    try:
+        # Simulando abertura de arquivo
+        arquivo = open(caminho_arquivo, "r", encoding="utf-8")
+        conteudo = arquivo.read()
+    except FileNotFoundError:
+        print(f"O arquivo '{caminho_arquivo}' não foi encontrado.")
+    else:
+        print("Arquivo lido com sucesso!")
+        # print(conteudo[:50]) # Exibiria os primeiros caracteres
+    finally:
+        print("Bloco finally executado: Limpando recursos / Fechando conexões.")
+        # Se o arquivo foi aberto com sucesso, garantiríamos o fechamento aqui:
+        # if 'arquivo' in locals() and not arquivo.closed: arquivo.close()
+
+exemplo_else_finally("arquivo_inexistente.txt")
+
+
+# =============================================================================
+# 5. LANÇANDO EXCEÇÕES (RAISE)
+# =============================================================================
+# Você pode forçar/lançar uma exceção manualmente usando a palavra-chave 'raise'.
+
+def cadastrar_idade(idade):
+    if not isinstance(idade, int):
+        raise TypeError("A idade deve ser um número inteiro.")
+    if idade < 0 or idade > 130:
+        raise ValueError("A idade deve estar entre 0 e 130 anos.")
+    print(f"Idade {idade} cadastrada com sucesso!")
+
+print("\n--- Teste Raise ---")
+try:
+    cadastrar_idade(150)
+except (TypeError, ValueError) as e:
+    print(f"Falha no cadastro: {e}")
+
+
+# =============================================================================
+# 6. CRIANDO EXCEÇÕES PERSONALIZADAS (CUSTOM EXCEPTIONS)
+# =============================================================================
+# Para regras de negócio específicas, crie classes herdando de 'Exception'.
+
+class SaldoInsuficienteError(Exception):
+    """Exceção levantada quando uma conta não possui saldo para saque."""
+    def __init__(self, saldo_atual, valor_saque):
+        self.saldo_atual = saldo_atual
+        self.valor_saque = valor_saque
+        mensagem = f"Tentativa de saque de R${valor_saque:.2f} com saldo insuficiente de R${saldo_atual:.2f}."
+        super().__init__(mensagem)
+
+class ContaBancaria:
+    def __init__(self, titular, saldo_inicial):
+        self.titular = titular
+        self.saldo = saldo_inicial
+
+    def sacar(self, valor):
+        if valor > self.saldo:
+            raise SaldoInsuficienteError(self.saldo, valor)
+        self.saldo -= valor
+        print(f"Saque de R${valor:.2f} realizado. Novo saldo: R${self.saldo:.2f}")
+
+print("\n--- Teste Exceção Personalizada ---")
+conta = ContaBancaria("Ana", 100.00)
+
+try:
+    conta.sacar(50.00)   # Sucesso
+    conta.sacar(200.00)  # Deve disparar SaldoInsuficienteError
+except SaldoInsuficienteError as e:
+    print(f"Operação negada: {e}")
